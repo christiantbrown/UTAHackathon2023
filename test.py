@@ -1,15 +1,13 @@
 
 import speech_recognition as sr
 from speech_recog import *
+from goldcheck import *
+from build_path import *
 from commandHandler import handler
 from typing import Dict
 
 r = sr.Recognizer()
 mic = sr.Microphone()
-
-
-
-
 
 print(handler)
 while(1):
@@ -21,4 +19,3 @@ while(1):
             handler[command]()
     else:
         continue
-    

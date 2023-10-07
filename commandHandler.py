@@ -4,6 +4,8 @@ from TwitchPlays_KeyCodes import HoldKey, ReleaseKey, HoldAndReleaseKey
 import TwitchPlays_KeyCodes
 import time
 import pyautogui
+from build_path import *
+from goldcheck import *
 
 
 scrWidth, scrHeight = pyautogui.size()  
@@ -32,8 +34,6 @@ def jump():
     HoldAndReleaseKey(TwitchPlays_KeyCodes.W, .1)
 
 
-
-
 handler = {
     "e":heal,
     "heal":heal,
@@ -41,7 +41,7 @@ handler = {
     "heel":heal,
     "hill":heal,
     "stick":stick,
-    
+    "shop":buy_items(build_path_final, checkgold(api_url))
 }
 
 
