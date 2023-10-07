@@ -16,14 +16,14 @@ def listen_to_mic(r: sr.Recognizer, mic: sr.Microphone) -> Dict:
         #using google speec recog to translate voice to text
         result["transcript"] = r.recognize_google(audio).lower()
         #clean up audio
-        response["transcript"] = response["transcription"].replace("-", " ")
-        response["transcript"] = response["transcription"].replace("/", " ")
-        response["transcript"] = response["transcription"].replace("\\", " ")
+        result["transcript"] = response["transcription"].replace("-", " ")
+        result["transcript"] = response["transcription"].replace("/", " ")
+        result["transcript"] = response["transcription"].replace("\\", " ")
     
     except sr.RequestError:
         result["success"] = False
         result["error"] = "Error with voice recognition"
     except sr.UnknownValueError:
-        response["error"] = "Response not recognized"
+        result["error"] = "Response not recognized"
 
-    return response
+    return result
