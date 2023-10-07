@@ -1,13 +1,14 @@
 import speech_recognition as sr
 from typing import Dict, List
 
+r = sr.Recognizer()
+mic = sr.Microphone()
+
 def listen_to_mic(r: sr.Recognizer, mic: sr.Microphone) -> Dict:
     with sr.Microphone() as source:
         print("say something")
-        r.adjust_for_ambient_noise(source,timeout = 5, phrase_time_limit = 0.3)
+        r.adjust_for_ambient_noise(source, duration = 0.5)
         audio = r.listen(source)
-
-    #initialize return value
     result = {"success": True, "error": None, "transcript": None}
 
     try:
