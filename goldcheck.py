@@ -24,7 +24,7 @@ def item_request_image(api_url_item, build_path_final):
         try:
             payload = resp.json()['data'][str(i)]
 
-            if payload['name'] in build_path_mythic[:][0]:
+            if payload['name'] in build_path_mythic[:][0] or build_path_final[:][0]:
                 print('found')
                 img_url = "https://ddragon.leagueoflegends.com/cdn/13.19.1/img/item/" + str(i) + ".png"
                 print(img_url)
