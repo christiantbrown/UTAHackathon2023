@@ -30,7 +30,7 @@ def enemy_detection():
 
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
 
-    threshold = 0.8  
+    threshold = 0.6  
 
     if max_val >= threshold:
         # Template match found
