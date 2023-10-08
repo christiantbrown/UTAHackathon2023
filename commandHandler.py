@@ -6,13 +6,14 @@ import time
 import pyautogui
 from build_path import *
 from goldcheck import *
+from cvision import *
 
 
 scrWidth, scrHeight = pyautogui.size()  
 
 
-playerKeys = {1:TwitchPlays_KeyCodes.F1, 2:TwitchPlays_KeyCodes.F2, 3:TwitchPlays_KeyCodes.F3, 4:TwitchPlays_KeyCodes.F4, 5:TwitchPlays_KeyCodes.F5}
-numKeys=[TwitchPlays_KeyCodes.ONE,TwitchPlays_KeyCodes.TWO,TwitchPlays_KeyCodes.THREE,TwitchPlays_KeyCodes.FOUR,TwitchPlays_KeyCodes.FIVE,TwitchPlays_KeyCodes.SIX,TwitchPlays_KeyCodes.SEVEN]
+playerKeys = {**dict.fromkeys(['won','one','1',1],TwitchPlays_KeyCodes.F1), **dict.fromkeys(['too','to','2',2],TwitchPlays_KeyCodes.F2), **dict.fromkeys(['three','3','tree',3],TwitchPlays_KeyCodes.F3), **dict.fromkeys(['four','for',4,'4'],TwitchPlays_KeyCodes.F4), **dict.fromkeys([5,'five','5'],TwitchPlays_KeyCodes.F5)}
+numKeys={**dict.fromkeys(['won','one','1',1],TwitchPlays_KeyCodes.ONE),**dict.fromkeys(['too','to','2',2],TwitchPlays_KeyCodes.TWO),**dict.fromkeys(['three','3','tree',3],TwitchPlays_KeyCodes.THREE),**dict.fromkeys(['four','for',4,'4'],TwitchPlays_KeyCodes.FOUR),**dict.fromkeys([5,'five','5'],TwitchPlays_KeyCodes.FIVE),**dict.fromkeys(['six','6',6],TwitchPlays_KeyCodes.SIX),**dict.fromkeys(['seven','7',7],TwitchPlays_KeyCodes.SEVEN)}
 keyboard=Controller
 
 def centerMouse():
@@ -44,7 +45,20 @@ def item(num):
     
 def itemroutine(*args): buy_items(build_path_final, check_gold(api_url))
 
+def missile():
+    for i in range(6):
+        pyautogui.moveTo(enemy_detection())
+        time.sleep(.5)
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.Q, .1)
+
+def wave():
+    pyautogui.moveTo(enemy_detection())
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.R, .1)
+
+
 handler = {
+    "wave":wave,
+    "missile":missile,
     "e":heal,
     "heal":heal,
     "shield":heal,
@@ -58,9 +72,10 @@ handler = {
     "stop":itemroutine,
     "shut":itemroutine,
     "buy":itemroutine,
-    "bye":itemroutine
+    "bye":itemroutine,
     
     
+
 }
 
 

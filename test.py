@@ -22,6 +22,7 @@ def splitCommand(command):
 
 
 
+print(handler)
 while(1):
     res=listen_to_mic(r,mic)
     if(res["success"]):
