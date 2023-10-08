@@ -59,8 +59,14 @@ def ignite():
 def recall():
     HoldAndReleaseKey(TwitchPlays_KeyCodes.B, 0.1)
 
+<<<<<<< HEAD
 def item_routine():
     buy_items(build_path_final, check_gold(api_url))
+=======
+def lock():
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.Y, 0.1)
+
+>>>>>>> f795b49a169a3b1a7c2c0dec79bcd73506ce0f34
 
 handler = {
     "wave":wave,
@@ -74,14 +80,19 @@ handler = {
     "heel":heal,
     "hill":heal,
     "stick":stick,
+<<<<<<< HEAD
     "shop":item_routine,
     "stop":item_routine,
     "purchase":item_routine,
+=======
+    "shop":lambda: buy_items(build_path_final, check_gold(api_url)),
+>>>>>>> f795b49a169a3b1a7c2c0dec79bcd73506ce0f34
     "level":level_up,
     "exhaust":exhaust,
     "ignite":ignite,
     "recall":recall,
-    "back":recall
+    "back":recall,
+    "lock":lock
 }
 
 
