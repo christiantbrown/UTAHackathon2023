@@ -1,3 +1,6 @@
+import TwitchPlays_KeyCodes
+import pyautogui
+
 build_path_mythic = [("Bandleglass Mirror", 950, "4642"),
                     ("Kindlegem", 800, "3067")]
 
@@ -22,7 +25,14 @@ build_path_final = [("Spellthief's Edge", 450, None, "3850"),
                     ]
 
 def purchase_item(item):
-    return item
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.P, 0.1)
+    HoldKey(LEFT_CONTROL)
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.L, .1)
+    ReleaseKey(LEFT_CONTROL)
+    pyautogui.write(item[0])
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.ENTER, 0.1)
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.ESC, 0.1)
+
 
 #recursively goes through list and invokes purchase_item if current gold is greather than item cost
 def buy_items(items, current_gold):
