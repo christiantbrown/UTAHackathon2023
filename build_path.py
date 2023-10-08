@@ -1,4 +1,5 @@
 import TwitchPlays_KeyCodes
+from TwitchPlays_KeyCodes import HoldKey, ReleaseKey, HoldAndReleaseKey
 import pyautogui
 
 build_path_mythic = [("Bandleglass Mirror", 950, "4642"),
@@ -26,9 +27,9 @@ build_path_final = [("Spellthief's Edge", 450, None, "3850"),
 
 def purchase_item(item):
     HoldAndReleaseKey(TwitchPlays_KeyCodes.P, 0.1)
-    HoldKey(LEFT_CONTROL)
+    HoldKey(TwitchPlays_KeyCodes.LEFT_CONTROL)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.L, .1)
-    ReleaseKey(LEFT_CONTROL)
+    ReleaseKey(TwitchPlays_KeyCodes.LEFT_CONTROL)
     pyautogui.write(item[0])
     HoldAndReleaseKey(TwitchPlays_KeyCodes.ENTER, 0.1)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.ESC, 0.1)

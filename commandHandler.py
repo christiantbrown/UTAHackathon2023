@@ -45,12 +45,12 @@ def wave():
     HoldAndReleaseKey(TwitchPlays_KeyCodes.R, .1)
 
 def level_up():
-    HoldKey(LEFT_CONTROL)
+    HoldKey(TwitchPlays_KeyCodes.LEFT_CONTROL)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.R, .1)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.Q, .1)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.E, .1)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.W, .1)
-    ReleaseKey(LEFT_CONTROL)
+    ReleaseKey(TwitchPlays_KeyCodes.LEFT_CONTROL)
 
 def exhaust():
     pyautogui.moveTo(enemy_detection())
@@ -62,6 +62,9 @@ def ignite():
 
 def recall():
     HoldAndReleaseKey(TwitchPlays_KeyCodes.B, 0.1)
+
+def lock():
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.Y, 0.1)
 
 
 handler = {
@@ -81,7 +84,8 @@ handler = {
     "exhaust":exhaust,
     "ignite":ignite,
     "recall":recall,
-    "back":recall
+    "back":recall,
+    "lock":lock
 }
 
 
