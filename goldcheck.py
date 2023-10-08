@@ -1,5 +1,5 @@
 import requests
-#from build_path.py import build_path_final
+from build_path import *
 import cv2
 from skimage import io
 
@@ -17,40 +17,24 @@ def check_gold(api_url):
     return current_gold
 
 #request item data using API based on ID string
-def item_request_image(api_url_item, build_path_final):
+def item_request_image(api_url_item, build_path_final,build_path_mythic,build_path_staff,build_path_redemption,build_path_ardent,build_path_mikael):
     resp = requests.get(api_url_item)
 
-    for i in list(range(1000,10000)):
+    for i in list(range(1000,5000)):
         try:
             payload = resp.json()['data'][str(i)]
 
-            if payload['name'] in build_path_mythic[:][0] or build_path_final[:][0]:
+            if payload['name'] in str(build_path_final):
                 print('found')
                 img_url = "https://ddragon.leagueoflegends.com/cdn/13.19.1/img/item/" + str(i) + ".png"
                 print(img_url)
                 image = requests.get(img_url).content
-                f = open(str(i) + ".png", 'wb')
+                f = open("item_images/" + str(i) + ".png", 'wb')
 
                 f.write(image)
                 f.close()
         except:
             pass
 
-build_path_mythic = [('Bandleglass Mirror', 950),
-                    ('Kindlegem', 800)]
-
-build_path_staff_ardent = [("Forbidden Idol", 800),
-                            ("Aether Wisp", 850)]
-
-build_path_redemption_mikael = [("Forbidden Idol", 800), 
-                                ("Chalice of Blessing", 950)]
-
-build_path_final = [("Spellthief's Edge", 450, None),
-                    ("Shurelya's Battlesong", 2300, build_path_mythic),
-                    ("Staff of Flowing Water", 2100, build_path_staff_ardent),
-                    ("Ardent Censer", 2100, build_path_staff_ardent),
-                    ("Redemption", 2300, build_path_redemption_mikael),
-                    ("Mikael's Blessing", 2300, build_path_redemption_mikael)
-                    ]
-item_request_image(api_url_item, build_path_mythic)
+#item_request_image(api_url_item, build_path_final, build_path_mythic, build_path_staff, build_path_redemption, build_path_ardent, build_path_mikael)
 #print(build_path_final)
