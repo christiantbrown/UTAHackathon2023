@@ -1,6 +1,8 @@
 
 import speech_recognition as sr
 from speech_recog import *
+from goldcheck import *
+from build_path import *
 from commandHandler import handler
 from typing import Dict
 
@@ -14,12 +16,12 @@ def splitCommand(command):
         if(command[index] == ' '):
             return command[0:index],command[index+1::]
         index+=1
-    return command
+    return command, None
 
 
 
 
-print(handler)
+
 while(1):
     res=listen_to_mic(r,mic)
     if(res["success"]):
@@ -32,4 +34,3 @@ while(1):
                 handler[command]()
     else:
         continue
-    
