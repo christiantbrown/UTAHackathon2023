@@ -42,8 +42,14 @@ def wave():
     pyautogui.moveTo(enemy_detection())
     HoldAndReleaseKey(TwitchPlays_KeyCodes.R, .1)
 
+def pop_summs():
+    pyautogui.moveTo(enemy_detection())
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.D, .1)
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.F, .1)
+
 
 handler = {
+    "pop":pop_summs,
     "wave":wave,
     "missile":missile,
     "e":heal,
