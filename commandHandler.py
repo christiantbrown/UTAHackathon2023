@@ -11,15 +11,16 @@ from cvision import *
 
 scrWidth, scrHeight = pyautogui.size()  
 
-
-playerKeys = {**dict.fromkeys(['won','one','1',1],TwitchPlays_KeyCodes.F1), **dict.fromkeys(['too','to','2',2],TwitchPlays_KeyCodes.F2), **dict.fromkeys(['three','3','tree',3],TwitchPlays_KeyCodes.F3), **dict.fromkeys(['four','for',4,'4'],TwitchPlays_KeyCodes.F4), **dict.fromkeys([5,'five','5'],TwitchPlays_KeyCodes.F5)}
-numKeys={**dict.fromkeys(['won','one','1',1],TwitchPlays_KeyCodes.ONE),**dict.fromkeys(['too','to','2',2],TwitchPlays_KeyCodes.TWO),**dict.fromkeys(['three','3','tree',3],TwitchPlays_KeyCodes.THREE),**dict.fromkeys(['four','for',4,'4'],TwitchPlays_KeyCodes.FOUR),**dict.fromkeys([5,'five','5'],TwitchPlays_KeyCodes.FIVE),**dict.fromkeys(['six','6',6],TwitchPlays_KeyCodes.SIX),**dict.fromkeys(['seven','7',7],TwitchPlays_KeyCodes.SEVEN)}
+f1 = TwitchPlays_KeyCodes.F1;f2=TwitchPlays_KeyCodes.F2;f3=TwitchPlays_KeyCodes.F3;f4=TwitchPlays_KeyCodes.F4;f5=TwitchPlays_KeyCodes.F5
+one=TwitchPlays_KeyCodes.ONE;two=TwitchPlays_KeyCodes.TWO;three=TwitchPlays_KeyCodes.THREE;four=TwitchPlays_KeyCodes.FOUR;five=TwitchPlays_KeyCodes.FIVE;six=TwitchPlays_KeyCodes.SIX;seven=TwitchPlays_KeyCodes.SEVEN
+playerKeys={'one':f1,'1':f1,1:f1,'two':f2,'too':f2,'to':f2,'2':f2,2:f2,'three':f3,'tree':f3,'3':f3,3:f3,'four':f4,'for':f4,'4':f4,4:f4,'five':f5,'5':f5,5:f5}
+numKeys={'one':one,'won':one,'1':one,1:one,'two':two,'too':two,'to':two,'2':two,2:two,'three':three,'tree':three,'3':three,3:three,'four':four,'for':four,'4':four,4:four,'five':five,'5':five,5:five,'six':six,'6':six,6:six,'seven':seven,'7':seven,7:seven}
 keyboard=Controller
 
 def centerMouse():
     pyautogui.moveTo(scrWidth/2,scrHeight/2)
 
-def heal():
+def heal(*args):
     HoldAndReleaseKey(TwitchPlays_KeyCodes.E, .1)
     
 def stick(num=4):
@@ -27,31 +28,36 @@ def stick(num=4):
     print(num)
 
 
-    
-    if num not in [1,2,3,4,5]: num = 4
-    HoldKey(playerKeys[num])    
+    num = playerKeys[num]
+    if num not in [f1,f2,f3,f4,f5]: num=f4
+
+    HoldKey(num)    
     centerMouse()
     HoldAndReleaseKey(TwitchPlays_KeyCodes.W, .1)
-    ReleaseKey(playerKeys[num])
+    ReleaseKey(num)
     
-def jump():
+def jump(*args):
     HoldAndReleaseKey(TwitchPlays_KeyCodes.W, .1)
     
 def item(num):
     if not num or num not in [1,2,3,4,5,6,7]: return
     centerMouse()
-    HoldAndReleaseKey(numKeys[num],.1)
+    HoldKey(numKeys[num])
+    pyautogui.click()
+    time.sleep(.05)
+    pyautogui.click()
+    ReleaseKey(numKeys[num])
     
     
 def itemroutine(*args): buy_items(build_path_final, check_gold(api_url))
 
-def missile():
+def missile(*args):
     for i in range(6):
         pyautogui.moveTo(enemy_detection())
         time.sleep(.5)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.Q, .1)
 
-def wave():
+def wave(*args):
     pyautogui.moveTo(enemy_detection())
     HoldAndReleaseKey(TwitchPlays_KeyCodes.R, .1)
 
