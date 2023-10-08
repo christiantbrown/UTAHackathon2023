@@ -79,7 +79,7 @@ handler = {
     "heel":heal,
     "hill":heal,
     "stick":stick,
-    "shop":buy_items(build_path_final, check_gold(api_url)),
+    "shop":lambda: buy_items(build_path_final, check_gold(api_url)),
     "level":level_up,
     "exhaust":exhaust,
     "ignite":ignite,
