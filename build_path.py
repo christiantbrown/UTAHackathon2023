@@ -1,28 +1,28 @@
-build_path_final = [("Spellthief's Edge", 450, None),
-                    ("Shurelya's Battlesong", 2300, build_path_mythic),
-                    ("Staff of Flowing Water", 2100, build_path_staff)
-                    ("Ardent Censer", 2100, build_path_ardent),
-                    ("Redemption", 2300, build_path_redemption),
-                    ("Mikael's Blessing", 2300, build_path_mikael)
+build_path_final = [("Spellthief's Edge", 450, None, "3850"),
+                    ("Shurelya's Battlesong", 2300, build_path_mythic, "2065"),
+                    ("Staff of Flowing Water", 2100, build_path_staff, "6616")
+                    ("Ardent Censer", 2100, build_path_ardent, "3504"),
+                    ("Redemption", 2300, build_path_redemption, "3107"),
+                    ("Mikael's Blessing", 2300, build_path_mikael, "3222")
                     ]
 
-build_path_mythic = [("Bandleglass Mirror", 950),
-                    ("Kindlegem", 800)]
+build_path_mythic = [("Bandleglass Mirror", 950, "4642"),
+                    ("Kindlegem", 800, "3067")]
 
-build_path_staff = [("Forbidden Idol", 800),
-                            ("Aether Wisp", 850)]
+build_path_staff = [("Forbidden Idol", 800, "3114"),
+                    ("Aether Wisp", 850, "3113")]
 
-build_path_redemption = [("Forbidden Idol", 800), 
-                                ("Chalice of Blessing", 950)]
+build_path_redemption = [("Forbidden Idol", 800, "3114"), 
+                        ("Chalice of Blessing", 950, "3012")]
                                 
-build_path_ardent = [("Forbidden Idol", 800),
-                            ("Aether Wisp", 850)]
+build_path_ardent = [("Forbidden Idol", 800, "3114"),
+                    ("Aether Wisp", 850, "3113")]
 
-build_path_mikael = [("Forbidden Idol", 800), 
-                                ("Chalice of Blessing", 950)]
+build_path_mikael = [("Forbidden Idol", 800, "3114"), 
+                    ("Chalice of Blessing", 950, "3012")]
 
 def purchase_item(item):
-    print(f'Processing {item}')
+    return item
 
 #recursively goes through list and invokes purchase_item if current gold is greather than item cost
 def buy_items(items, current_gold):
