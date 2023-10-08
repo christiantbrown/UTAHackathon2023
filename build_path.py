@@ -1,9 +1,5 @@
 import TwitchPlays_KeyCodes
-<<<<<<< HEAD
 from TwitchPlays_KeyCodes import HoldAndReleaseKey, HoldKey, ReleaseKey
-=======
-from TwitchPlays_KeyCodes import HoldKey, ReleaseKey, HoldAndReleaseKey
->>>>>>> f795b49a169a3b1a7c2c0dec79bcd73506ce0f34
 import pyautogui
 import time
 
@@ -32,7 +28,6 @@ build_path_final = [("Spellthief's Edge", 450, None, "3850"),
 
 def purchase_item(item):
     HoldAndReleaseKey(TwitchPlays_KeyCodes.P, 0.1)
-<<<<<<< HEAD
     time.sleep(0.3)
     HoldKey(TwitchPlays_KeyCodes.LEFT_CONTROL)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.L, .1)
@@ -40,12 +35,6 @@ def purchase_item(item):
     ReleaseKey(TwitchPlays_KeyCodes.LEFT_CONTROL)
     pyautogui.write(item[0], interval=0.1)
     time.sleep(0.3)
-=======
-    HoldKey(TwitchPlays_KeyCodes.LEFT_CONTROL)
-    HoldAndReleaseKey(TwitchPlays_KeyCodes.ENTER, .1)
-    ReleaseKey(TwitchPlays_KeyCodes.LEFT_CONTROL)
-    pyautogui.write(item[0])
->>>>>>> f795b49a169a3b1a7c2c0dec79bcd73506ce0f34
     HoldAndReleaseKey(TwitchPlays_KeyCodes.ENTER, 0.1)
     time.sleep(0.3)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.ESC, 0.1)
@@ -62,7 +51,7 @@ def buy_items(items, current_gold):
         #if current gold is greather than item cost, then buy it
         if item[1] < current_gold:
             purchase_item(item)
-            items.remove(item)
+            #items.remove(item)
         #if not, then if item has a sublist for components, then it goes through that list instead
         elif isinstance(item, list):
             buy_items(item, current_gold)

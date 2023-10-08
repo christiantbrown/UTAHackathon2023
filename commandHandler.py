@@ -59,14 +59,28 @@ def ignite():
 def recall():
     HoldAndReleaseKey(TwitchPlays_KeyCodes.B, 0.1)
 
-<<<<<<< HEAD
 def item_routine():
     buy_items(build_path_final, check_gold(api_url))
-=======
 def lock():
     HoldAndReleaseKey(TwitchPlays_KeyCodes.Y, 0.1)
 
->>>>>>> f795b49a169a3b1a7c2c0dec79bcd73506ce0f34
+def one_press():
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.ONE, 0.1)
+
+def two_press():
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.TWO, 0.1)
+
+def three_press():
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.THREE, 0.1)
+
+def four_press():
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.FOUR, 0.1)
+
+def five_press():
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.FIVE, 0.1)
+
+def six_press():
+    HoldAndReleaseKey(TwitchPlays_KeyCodes.SIX, 0.1)
 
 handler = {
     "wave":wave,
@@ -80,19 +94,22 @@ handler = {
     "heel":heal,
     "hill":heal,
     "stick":stick,
-<<<<<<< HEAD
     "shop":item_routine,
     "stop":item_routine,
     "purchase":item_routine,
-=======
-    "shop":lambda: buy_items(build_path_final, check_gold(api_url)),
->>>>>>> f795b49a169a3b1a7c2c0dec79bcd73506ce0f34
     "level":level_up,
     "exhaust":exhaust,
     "ignite":ignite,
+    "ig":ignite,
     "recall":recall,
     "back":recall,
-    "lock":lock
+    "lock":lock,
+    "one":one_press,
+    "to":two_press,
+    "three":three_press,
+    "four":four_press,
+    "five":five_press,
+    "six":six_press
 }
 
 
