@@ -7,7 +7,6 @@ import pyautogui
 from build_path import *
 from goldcheck import *
 from cvision import *
-import time
 
 scrWidth, scrHeight = pyautogui.size()  
 
@@ -35,22 +34,19 @@ def jump():
     HoldAndReleaseKey(TwitchPlays_KeyCodes.W, .1)
 
 def missile():
+    pyautogui.moveTo(enemy_detection())
     HoldAndReleaseKey(TwitchPlays_KeyCodes.Q, .1)
-    for i in range (0, 15):
-        pyautogui.moveTo(enemy_detection())
-        time.sleep(0.2)
-    
 
 def wave():
     HoldAndReleaseKey(TwitchPlays_KeyCodes.R, .1)
 
 def level_up():
-    HoldKey(LEFT_CONTROL)
+    HoldKey(TwitchPlays_KeyCodes.LEFT_CONTROL)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.R, .1)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.Q, .1)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.E, .1)
     HoldAndReleaseKey(TwitchPlays_KeyCodes.W, .1)
-    ReleaseKey(LEFT_CONTROL)
+    ReleaseKey(TwitchPlays_KeyCodes.LEFT_CONTROL)
 
 def exhaust():
     pyautogui.moveTo(enemy_detection())
@@ -63,6 +59,8 @@ def ignite():
 def recall():
     HoldAndReleaseKey(TwitchPlays_KeyCodes.B, 0.1)
 
+def item_routine():
+    buy_items(build_path_final, check_gold(api_url))
 
 handler = {
     "wave":wave,
@@ -76,7 +74,9 @@ handler = {
     "heel":heal,
     "hill":heal,
     "stick":stick,
-    "shop":buy_items(build_path_final, check_gold(api_url)),
+    "shop":item_routine,
+    "stop":item_routine,
+    "purchase":item_routine,
     "level":level_up,
     "exhaust":exhaust,
     "ignite":ignite,
