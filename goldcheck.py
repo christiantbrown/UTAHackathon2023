@@ -14,7 +14,8 @@ def check_gold(api_url):
 
     payload = resp.json()
     current_gold = payload['currentGold']
-
+    print("Current Gold")
+    print(current_gold)
     return current_gold
 
 #request item data using API based on ID string
