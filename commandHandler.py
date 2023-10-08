@@ -6,6 +6,7 @@ import time
 import pyautogui
 from build_path import *
 from goldcheck import *
+from cvision import *
 
 
 scrWidth, scrHeight = pyautogui.size()  
@@ -34,9 +35,11 @@ def jump():
     HoldAndReleaseKey(TwitchPlays_KeyCodes.W, .1)
 
 def missile():
+    pyautogui.moveTo(enemy_detection())
     HoldAndReleaseKey(TwitchPlays_KeyCodes.Q, .1)
 
 def wave():
+    pyautogui.moveTo(enemy_detection())
     HoldAndReleaseKey(TwitchPlays_KeyCodes.R, .1)
 
 

@@ -20,3 +20,28 @@ def search_image(reference_img) -> int:
     center_y = max_loc[1] + ref_img.shape[0] // 2
 
     return center_x, center_y
+
+def enemy_detection():
+    print_screen("find_enemy.png")
+    main_image = cv2.imread("find_enemy.png")
+    template = cv2.imread('HPref.PNG')
+
+    result = cv2.matchTemplate(main_image, template, cv2.TM_CCOEFF_NORMED)
+
+    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
+
+    threshold = 0.8  
+
+    if max_val >= threshold:
+        # Template match found
+        match_location = max_loc
+        match_location = (max_loc[0] + template.shape[1] // 2, max_loc[1] + template.shape[0] // 2)
+        shifted_location = (match_location[0], match_location[1] + 80)
+        return shifted_location
+        #cv2.rectangle(main_image, match_location, (match_location[0] + template.shape[1], match_location[1] + template.shape[0]), (0, 255, 0), 2) 
+        #cv2.imshow('Result', main_image)
+        #cv2.waitKey(0)
+        #cv2.destroyAllWindows()
+    else:
+        print("Template not found")
+
