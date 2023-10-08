@@ -32,7 +32,7 @@ def buy_items(items, current_gold):
     #iterates through item list
     for item in items.copy():
         #if current gold is greather than item cost, then buy it
-        if item[0] < current_gold:
+        if item[1] < current_gold:
             purchase_item(item)
             items.remove(item)
         #if not, then if item has a sublist for components, then it goes through that list instead
