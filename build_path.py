@@ -1,11 +1,3 @@
-build_path_final = [("Spellthief's Edge", 450, None, "3850"),
-                    ("Shurelya's Battlesong", 2300, build_path_mythic, "2065"),
-                    ("Staff of Flowing Water", 2100, build_path_staff, "6616")
-                    ("Ardent Censer", 2100, build_path_ardent, "3504"),
-                    ("Redemption", 2300, build_path_redemption, "3107"),
-                    ("Mikael's Blessing", 2300, build_path_mikael, "3222")
-                    ]
-
 build_path_mythic = [("Bandleglass Mirror", 950, "4642"),
                     ("Kindlegem", 800, "3067")]
 
@@ -20,6 +12,14 @@ build_path_ardent = [("Forbidden Idol", 800, "3114"),
 
 build_path_mikael = [("Forbidden Idol", 800, "3114"), 
                     ("Chalice of Blessing", 950, "3012")]
+
+build_path_final = [("Spellthief's Edge", 450, None, "3850"),
+                    ("Shurelya's Battlesong", 2300, build_path_mythic, "2065"),
+                    ("Staff of Flowing Water", 2100, build_path_staff, "6616"),
+                    ("Ardent Censer", 2100, build_path_ardent, "3504"),
+                    ("Redemption", 2300, build_path_redemption, "3107"),
+                    ("Mikael's Blessing", 2300, build_path_mikael, "3222")
+                    ]
 
 def purchase_item(item):
     return item
